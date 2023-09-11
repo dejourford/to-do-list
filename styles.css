@@ -37,12 +37,20 @@ h1, h2 {
     text-align: center;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 80%;
+}
+
 .to-do-list-container {
     width: 50%;
     background: crimson;
     border-radius: 1em;
     box-shadow: 0px 3px 9px rgb(0, 0, 0, 0.3);
-    height: 600px;
+    min-height: 400px;
     margin: 0 auto;
     padding: 2em;
     display: flex;
@@ -50,10 +58,34 @@ h1, h2 {
     gap: 2em;
 }
 
+.create-to-do-group {
+   display: flex;
+   justify-content: space-between; 
+    padding: 1em;
+}
+
+.add-to-do-input {
+    padding: 1em;
+    width: 70%;
+    border-radius: 0.4em;
+    border: none;
+    box-shadow: 0px 3px 9px rgb(0, 0, 0, 0.3);
+}
+
+.add-Btn {
+    background: white;
+    padding: 1em 2em;
+    border-radius: 0.3em;
+    font-weight: 800;
+    box-shadow: 0px 3px 9px rgb(0, 0, 0, 0.3);
+}
+
+
+
 .to-do-list-item-section {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
 }
 
 .to-do-item {
@@ -71,9 +103,12 @@ h1, h2 {
     gap: 0.3em;
 }
 
+.to-do-item-checkbox {
+    cursor: pointer;
+}
+
 .to-do-text, .fa-trash-can {
     font-size: 1.3rem;
 }
-
 
 
