@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: lightblue;
+}
+
+h6 {
+    text-align: center;
+}
+
+main {
+    height: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.to-do-list-container {
+    width: 50%;
+    background: crimson;
+    border-radius: 1em;
+    box-shadow: 0px 3px 9px rgb(0, 0, 0, 0.3);
+    height: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.to-do-list-item-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.to-do-item {
+    background: #eee;
+    border-radius: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    box-shadow: 0px 3px 9px rgb(0, 0, 0, 0.4);
+}
+
+.to-do-item-left {
+    display: flex;
+    gap: 0.3em;
+}
+
+.to-do-text, .fa-trash-can {
+    font-size: 1.3rem;
+}
+
+
+
