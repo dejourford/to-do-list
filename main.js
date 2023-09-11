@@ -44,10 +44,28 @@ function createToDoItem(toDoItemInput) {
     item.append(itemLeft, itemRight)
     toDoItemsGroup.append(item)
 
+    deleteBtn.addEventListener('click', function(e) {
+        console.log('item will be deleted')
+        const taskToBeDeleted = e.target.parentNode.parentNode.parentNode.parentNode
+        deleteTask(taskToBeDeleted)
+    })
+
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            console.log('checked')
+        }
+        else {
+            console.log('unchecked')
+        }
+    })
 
 
 }
-// DISPLAY STORED TO-DO-ITEM
+
 // ABILITY TO EDIT/DELETE/SET AS COMPLETED TO-DO-ITEM
+function deleteTask(toDoItemInput) {
+    console.log('the item to be deleted is:', toDoItemInput)
+    toDoItemsGroup.removeChild(toDoItemInput)
+}
 // STORE TO-DO-LIST ITEMS IN LOCAL STORAGE
 
