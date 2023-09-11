@@ -22,7 +22,7 @@ function createToDoItem(toDoItemInput) {
     item = document.createElement('li')
     const itemLeft = document.createElement('div')
     const checkbox = document.createElement('input')
-    toDoText = document.createElement('p')
+    const toDoText = document.createElement('p')
     const itemRight = document.createElement('div')
     const deleteBtn = document.createElement('button')
     const trashcan = document.createElement('div')
@@ -55,11 +55,11 @@ function createToDoItem(toDoItemInput) {
         const checkedTask = e.target.parentNode.parentNode
         if (checkbox.checked) {
             console.log(checkedTask, 'has been checked')
-            handleCheckboxClick()
+            handleCheckboxClick(checkedTask)
         }
         else {
             console.log(checkedTask, 'has been unchecked')
-            handleCheckboxClick()
+            handleCheckboxClick(checkedTask)
         }
     })
 
@@ -72,9 +72,12 @@ function deleteTask(toDoItemInput) {
     toDoItemsGroup.removeChild(toDoItemInput)
 }
 
-function handleCheckboxClick() {
-    toDoText.classList.toggle('completed')
-    if (toDoText.classList.contains('completed')) {
+function handleCheckboxClick(toDoItemInput) {
+    const checkedElement = toDoItemInput
+    const checkedToDoText = checkedElement.querySelector('p')
+    console.log(checkedToDoText)
+    checkedToDoText.classList.toggle('completed')
+    if (checkedToDoText.classList.contains('completed')) {
         item.style.background = 'green'
     }
     else {
