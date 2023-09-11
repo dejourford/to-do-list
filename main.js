@@ -4,7 +4,8 @@ const toDoListInput = document.querySelector('.add-to-do-input')
 const addBtn = document.querySelector('.add-Btn')
 const toDoItemsGroup = document.querySelector('.to-do-items')
 let toDoItemInput
-
+let toDoText
+let item
 // GET TO-DO-ITEM
 addBtn.addEventListener('click', function() {
     toDoItemInput = toDoListInput.value
@@ -18,10 +19,10 @@ addBtn.addEventListener('click', function() {
 // CREATE TO-DO-ITEM
 function createToDoItem(toDoItemInput) {
     console.log(`a list item will be made using: ${toDoItemInput}`)
-    const item = document.createElement('li')
+    item = document.createElement('li')
     const itemLeft = document.createElement('div')
     const checkbox = document.createElement('input')
-    const toDoText = document.createElement('p')
+    toDoText = document.createElement('p')
     const itemRight = document.createElement('div')
     const deleteBtn = document.createElement('button')
     const trashcan = document.createElement('div')
@@ -50,12 +51,15 @@ function createToDoItem(toDoItemInput) {
         deleteTask(taskToBeDeleted)
     })
 
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener('change', function(e) {
+        const checkedTask = e.target.parentNode.parentNode
         if (checkbox.checked) {
-            console.log('checked')
+            console.log(checkedTask, 'has been checked')
+            handleCheckboxClick()
         }
         else {
-            console.log('unchecked')
+            console.log(checkedTask, 'has been unchecked')
+            handleCheckboxClick()
         }
     })
 
@@ -67,5 +71,16 @@ function deleteTask(toDoItemInput) {
     console.log('the item to be deleted is:', toDoItemInput)
     toDoItemsGroup.removeChild(toDoItemInput)
 }
+
+function handleCheckboxClick() {
+    toDoText.classList.toggle('completed')
+    if (toDoText.classList.contains('completed')) {
+        item.style.background = 'green'
+    }
+    else {
+        item.style.background = '#eee'
+    }
+}
+
 // STORE TO-DO-LIST ITEMS IN LOCAL STORAGE
 
