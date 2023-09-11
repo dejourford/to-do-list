@@ -117,3 +117,8 @@ button:hover {
 }
 
 
+.to-do-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
