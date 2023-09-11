@@ -77,12 +77,7 @@ function handleCheckboxClick(toDoItemInput) {
     const checkedToDoText = checkedElement.querySelector('p')
     console.log(checkedToDoText)
     checkedToDoText.classList.toggle('completed')
-    if (checkedToDoText.classList.contains('completed')) {
-        item.style.background = 'green'
-    }
-    else {
-        item.style.background = '#eee'
-    }
+    
 }
 
 // STORE TO-DO-LIST ITEMS IN LOCAL STORAGE
