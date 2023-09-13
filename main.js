@@ -3,15 +3,31 @@
 const toDoListInput = document.querySelector('.add-to-do-input')
 const addBtn = document.querySelector('.add-Btn')
 const toDoItemsGroup = document.querySelector('.to-do-items')
+const trashCan = document.querySelector('.fa-trash-can')
 let toDoItemInput
 let toDoText
 let item
+const ls = localStorage
+const tasks = []
 // GET TO-DO-ITEM
 addBtn.addEventListener('click', function() {
     toDoItemInput = toDoListInput.value
     console.log(`The inputted Task: ${toDoItemInput}`)
     toDoListInput.value = ''
     createToDoItem(toDoItemInput)
+
+})
+
+// ALLOW USER TO SUBMIT TASK WITH ENTER BUTTON
+toDoListInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        toDoItemInput = toDoListInput.value
+        console.log(`The inputted Task: ${toDoItemInput}`)
+        toDoListInput.value = ''
+        createToDoItem(toDoItemInput)
+        console.log('work')
+    }
+    
 })
 
 
@@ -22,7 +38,7 @@ function createToDoItem(toDoItemInput) {
     item = document.createElement('li')
     const itemLeft = document.createElement('div')
     const checkbox = document.createElement('input')
-    const toDoText = document.createElement('p')
+    let toDoText = document.createElement('p')
     const itemRight = document.createElement('div')
     const deleteBtn = document.createElement('button')
     const trashcan = document.createElement('div')
@@ -51,6 +67,10 @@ function createToDoItem(toDoItemInput) {
         deleteTask(taskToBeDeleted)
     })
 
+
+
+
+
     checkbox.addEventListener('change', function(e) {
         const checkedTask = e.target.parentNode.parentNode
         if (checkbox.checked) {
@@ -62,7 +82,7 @@ function createToDoItem(toDoItemInput) {
             handleCheckboxClick(checkedTask)
         }
     })
-
+    storeInLocalStorage(item)
 
 }
 
@@ -71,6 +91,7 @@ function deleteTask(toDoItemInput) {
     console.log('the item to be deleted is:', toDoItemInput)
     toDoItemsGroup.removeChild(toDoItemInput)
 }
+
 
 function handleCheckboxClick(toDoItemInput) {
     const checkedElement = toDoItemInput
@@ -81,4 +102,12 @@ function handleCheckboxClick(toDoItemInput) {
 }
 
 // STORE TO-DO-LIST ITEMS IN LOCAL STORAGE
-
+function storeInLocalStorage(item) {
+    
+    for (let i = 0; i < tasks.length; i++) {
+        console.log(tasks[i])
+        tasks.push(tasks[i])
+        ls.setItem('tasks', JSON.stringify(tasks) )
+    }
+    
+}
